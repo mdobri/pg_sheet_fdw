@@ -395,7 +395,7 @@ void pg_sheet_fdwEndForeignScan(ForeignScanState *node){
 int64
 GetInt64Option(DefElem *def)
 {
-    int64 result;
+//    int64 result;
     char *str_val = defGetString(def);
 
 /*
