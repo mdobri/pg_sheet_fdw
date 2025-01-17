@@ -24,7 +24,12 @@
 #include "utils/rel.h"
 #include "utils/array.h"
 #include "utils/builtins.h"
-#include "utils/int8.h"
+/*
+* not supported from PG15
+*#include "utils/int8.h"
+*
+*/
+#include "utils/builtins.h"
 
 #include "catalog/pg_foreign_server.h"
 #include "catalog/pg_foreign_table.h"
