@@ -398,13 +398,18 @@ GetInt64Option(DefElem *def)
     int64 result;
     char *str_val = defGetString(def);
 
-    if (!scanint8(str_val, true, &result))
-        ereport(ERROR,
-                (errcode(ERRCODE_INVALID_PARAMETER_VALUE),
-                        errmsg("invalid value for option \"%s\": \"%s\"",
-                               def->defname, str_val)));
-
-    return result;
+/*
+* scanint8 has been replaced by pg_strtoint64 from PG15
+*
+*    if (!scanint8(str_val, true, &result))
+*        ereport(ERROR,
+*                (errcode(ERRCODE_INVALID_PARAMETER_VALUE),
+*                        errmsg("invalid value for option \"%s\": \"%s\"",
+*                               def->defname, str_val)));
+*
+*    return result;
+*/
+    return pg_strtoint64(str_val);
 }
 
 
